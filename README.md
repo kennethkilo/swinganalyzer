@@ -16,3 +16,10 @@
 - As a golfing enthusiast myself, I've often wondered if my body was doing what it was supposed to.
 AKA *Feel vs Real*. Being able to have an application where I can draw a line on top of a body segment and see the relative
 position changes will help me improve my swing!
+
+## User Stories
+- As a user, I want to be able to load in an image
+- As a user I want to be able to specify shape details and locations
+- For example, a solid green rectangle 200 pixels by 10 pixels in size from pixel locations (0,0) to (0,200)
+- As a user, I want to be able to see the shape overlaid on the image
+- As a user, I want to be able to delete the shape and add another one
