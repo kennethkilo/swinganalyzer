@@ -1,11 +1,18 @@
-# My Personal Project
+# My Personal Project - A Biomechanical Analysis Tool
 
-## A subtitle
+## An application that allows users to *draw* on images or videos
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+**Application Features**
+- Loading in an image/file
+- Drawing on the image/file (e.g. A line from position (x1,y1) to (x2,y2))
+- Deleting/erasing drawings
+- Saving drawings
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+**Application Audience**
+- Sports enthusiasts
+- Sport coaches
+
+**Project Inspiration**
+- As a golfing enthusiast myself, I've often wondered if my body was doing what it was supposed to.
+AKA *Feel vs Real*. Being able to have an application where I can draw a line on top of a body segment and see the relative
+position changes will help me improve my swing!
