@@ -18,11 +18,11 @@ AKA *Feel vs Real*. Being able to have an application where I can draw a line on
 position changes will help me improve my swing!
 
 ## User Stories
-- As a user I want to be able to specify shape details and locations
-- For example, a solid green rectangle 200 pixels by 10 pixels in size from pixel locations (0,0) to (0,200)
-- As a user, I want to be able to add a shape once or multiple times
-- As a user, I want to be able to delete a specific shape
-- As a user, I want to be able to clear all the shapes
+- As a user I want to be able to specify line details and locations
+- For example, a solid green line 200 pixels by 10 pixels in size from pixel locations (0,0) to (0,200)
+- As a user, I want to be able to add a line once or multiple times
+- As a user, I want to be able to delete a specific line
+- As a user, I want to be able to clear all the lines
 
 #### Saved for next part of the project
 - ~~As a user, I want to be able to load in an image~~ 
