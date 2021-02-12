@@ -19,10 +19,13 @@ position changes will help me improve my swing!
 
 ## User Stories
 - As a user I want to be able to specify line details and locations
-- For example, a solid green line 200 pixels by 10 pixels in size from pixel locations (0,0) to (0,200)
-- As a user, I want to be able to add a line once or multiple times
+- For example, a solid green line with width 20 from pixel locations (0,0) to (0,200)
+- As a user, I want to be able to add a line once or repeatedly
 - As a user, I want to be able to delete a specific line
+- As a user, I want to be able to delete the last line
 - As a user, I want to be able to clear all the lines
+- As a user, I want to check if the Image is clear of all lines
+- As a user, I want to see how many lines are still on the image and which ones they are
 
 #### Saved for next part of the project
 - ~~As a user, I want to be able to load in an image~~ 
