@@ -211,11 +211,11 @@ public class LineDrawingApp {
         int indexNumber;
         System.out.print("Enter the index number of the line you want to remove.\n");
         indexNumber = input.nextInt();
-        if (indexNumber <= exampleImage.getLines().size()) {
+        if (indexNumber < exampleImage.getLines().size()) {
             exampleImage.deleteSpecificLine(indexNumber);
             System.out.print("Ok, the line in position " + indexNumber + " has been deleted.\n");
         } else {
-            System.out.print("Error! " + indexNumber + " is greater than the number of items!\n");
+            System.out.print("Error! " + indexNumber + " is greater than the Index! Remember index starts from 0!\n");
         }
 
 
