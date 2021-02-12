@@ -1,5 +1,5 @@
-package model;
-
+import model.Image;
+import model.Line;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
