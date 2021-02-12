@@ -1,10 +1,10 @@
 package model;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 public class Image {
-    static ArrayList<Lines> lines;
+    private ArrayList<Line> lines;
     //name of image to tell the images apart
 
     // EFFECTS: Initializes the Image with an empty list of Lines
@@ -14,29 +14,25 @@ public class Image {
     }
 
     // getter
-    public ArrayList<Lines> getLines() {
+    public ArrayList<Line> getLines() {
         return this.lines;
     }
 
     // setter
-    public void setLines(ArrayList<Lines> setLines) {
+    public void setLines(ArrayList<Line> setLines) {
         this.lines = setLines;
     }
 
     // EFFECTS: Return true if the Image has no Lines on it
     public boolean emptyImage() {
-        if (lines.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return lines.isEmpty();
 
     }
 
-    // EFFECTS: Returns how many Lines there are
+    // EFFECTS: Returns how many Lines there are. Yes I know it returns a message. Might change later
     public String howManyLines() {
         int lineCount = this.lines.size();
-        return "There are " + String.valueOf(lineCount) + " lines on the drawing";
+        return "There are " + lineCount + " lines on the drawing";
     }
 
     //MODIFIES: this
@@ -50,8 +46,11 @@ public class Image {
     //MODIFIES: this
     //EFFECTS: Removes Line specified in array
     public Image deleteSpecificLine(int lineIndex) {
-        this.lines.remove(lineIndex);
+        if (lineIndex <= this.getLines().size()) {
+            this.lines.remove(lineIndex);
+        }
         return this;
+
     }
 
     //REQUIRES: non-empty Image
@@ -64,7 +63,7 @@ public class Image {
 
     //MODIFIES:this
     //EFFECTS: Adds the line to the image
-    public Image addLine(Lines lineToAdd) {
+    public Image addLine(Line lineToAdd) {
         this.lines.add(lineToAdd);
         return this;
     }
