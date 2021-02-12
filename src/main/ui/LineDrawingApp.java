@@ -18,7 +18,7 @@ public class LineDrawingApp {
     // EFFECTS: takes the user input
     private void runApp() {
         boolean keepGoing = true;
-        String command = null;
+        String command;
 
         init();
 
@@ -101,7 +101,7 @@ public class LineDrawingApp {
     // EFFECTS: takes the user input
     private void nextStage() {
         boolean keepGoing = true;
-        String command = null;
+        String command;
 
         while (keepGoing) {
             displayMenuTwo();
@@ -121,21 +121,28 @@ public class LineDrawingApp {
     // MODIFIES: this
     // EFFECTS: processes user command for second menu
     private void processCommandSecond(String command) {
-        if (command.equals("a")) {
-            addLine();
-        } else if (command.equals("b")) {
-            checkEmpty();
-        } else if (command.equals("c")) {
-            howManyLines();
-        } else if (command.equals("d")) {
-            clearAllLines();
-        } else if (command.equals("e")) {
-            deleteLastLine();
-        } else if (command.equals("f")) {
-            deleteSpecificLine();
-
-        } else {
-            System.out.println("Selection not valid...");
+        switch (command) {
+            case "a":
+                addLine();
+                break;
+            case "b":
+                checkEmpty();
+                break;
+            case "c":
+                howManyLines();
+                break;
+            case "d":
+                clearAllLines();
+                break;
+            case "e":
+                deleteLastLine();
+                break;
+            case "f":
+                deleteSpecificLine();
+                break;
+            default:
+                System.out.println("Selection not valid...");
+                break;
         }
     }
 
