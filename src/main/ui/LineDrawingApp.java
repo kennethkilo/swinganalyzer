@@ -75,23 +75,26 @@ public class LineDrawingApp {
         System.out.print("Enter the Line Colour: ");
         lineColour = input.next();
 
-        System.out.print("Enter the Line Width (e.g. 10): ");
-        lineWidth = input.nextInt();
+        if (lineColour.matches("-?[0-9]+")) {
+            System.out.print("Come on... we both know numbers aren't a colour! I didn't say RGB values!\n");
+        } else {
+            System.out.print("Enter the Line Width (e.g. 10): ");
+            lineWidth = input.nextInt();
 
-        System.out.print("Enter the Line starting (x,y) coordinates: ");
-        lineStart = input.next();
+            System.out.print("Enter the Line starting (x,y) coordinates: ");
+            lineStart = input.next();
 
-        System.out.print("Enter the Line ending (x,y) coordinates: ");
-        lineEnd = input.next();
+            System.out.print("Enter the Line ending (x,y) coordinates: ");
+            lineEnd = input.next();
 
-        newLine = new Line(lineColour, lineWidth, lineStart, lineEnd);
+            newLine = new Line(lineColour, lineWidth, lineStart, lineEnd);
 
-        exampleImage.addLine(newLine);
+            exampleImage.addLine(newLine);
 
 
-        System.out.println("You have added a " + lineColour + " line with width " + lineWidth + " from "
-                + lineStart + " to " + lineEnd + " on the image.\n");
-
+            System.out.println("You have added a " + lineColour + " line with width " + lineWidth + " from "
+                    + lineStart + " to " + lineEnd + " on the image.\n");
+        }
     }
 
     // MODIFIES: this
@@ -106,7 +109,7 @@ public class LineDrawingApp {
             command = command.toLowerCase();
 
             if (command.equals("q")) {
-                System.out.println("\nBack to the starting menu~");
+                System.out.println("\nBack to the starting menu~\n");
                 keepGoing = false;
             } else {
                 processCommandSecond(command);

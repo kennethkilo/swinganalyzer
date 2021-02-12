@@ -37,34 +37,29 @@ public class Image {
 
     //MODIFIES: this
     //EFFECTS: Removes all lines on Image
-    public Image clearLines() {
+    public void clearLines() {
         this.lines = new ArrayList<>();
-        return this;
     }
 
     //REQUIRES: non-empty Image
     //MODIFIES: this
     //EFFECTS: Removes Line specified in array
-    public Image deleteSpecificLine(int lineIndex) {
+    public void deleteSpecificLine(int lineIndex) {
         if (lineIndex <= this.getLines().size()) {
             this.lines.remove(lineIndex);
         }
-        return this;
-
     }
 
     //REQUIRES: non-empty Image
     //MODIFIES: this
     //EFFECTS: Removes the last Line
-    public Image deleteLastLine() {
+    public void deleteLastLine() {
         this.lines.remove(this.lines.size() - 1);
-        return this;
     }
 
     //MODIFIES:this
     //EFFECTS: Adds the line to the image
-    public Image addLine(Line lineToAdd) {
+    public void addLine(Line lineToAdd) {
         this.lines.add(lineToAdd);
-        return this;
     }
 }
