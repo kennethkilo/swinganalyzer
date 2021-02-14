@@ -15,7 +15,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: takes the user input
+    // EFFECTS: takes the user input while displaying a menu of options
     private void runApp() {
         boolean keepGoing = true;
         String command;
@@ -38,7 +38,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes user command
+    // EFFECTS: processes user command when they choose to add a line (option a). User starts with only option to add.
     private void processCommand(String command) {
         if (command.equals("a")) {
             addLine();
@@ -56,7 +56,7 @@ public class LineDrawingApp {
         input = new Scanner(System.in);
     }
 
-    // EFFECTS: displays menu of options to user
+    // EFFECTS: displays menu of options to user. This is the main menu and one out of two total.
     private void displayMenu() {
         System.out.println("\nWould you like to:");
         System.out.println("\ta -> Add Lines to Image");
@@ -64,7 +64,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds a line to the image
+    // EFFECTS: adds a line to the image by taking in its four fields from the user.
     private void addLine() {
         String lineColour;
         int lineWidth;
@@ -98,7 +98,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: takes the user input
+    // EFFECTS: takes the user input for the next stage after a line is added.
     private void nextStage() {
         boolean keepGoing = true;
         String command;
@@ -119,7 +119,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes user command for second menu
+    // EFFECTS: processes user command with the second menu.
     private void processCommandSecond(String command) {
         switch (command) {
             case "a":
@@ -146,7 +146,7 @@ public class LineDrawingApp {
         }
     }
 
-    // EFFECTS: displays menu of options to user
+    // EFFECTS: displays the options of the second menu to user
     private void displayMenuTwo() {
         System.out.println("\nWhat would you like to do next?:");
         System.out.println("\ta -> Add more Lines to Image");
@@ -206,7 +206,7 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: deletes a specific line indexed
+    // EFFECTS: deletes a specific line indexed starting from 0
     private void deleteSpecificLine() {
         int indexNumber;
         System.out.print("Enter the index number of the line you want to remove.\n");

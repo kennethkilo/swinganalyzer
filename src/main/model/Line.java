@@ -31,4 +31,7 @@ public class Line {
     public String getLineEnd() {
         return this.lineEnd;
     }
+
+    //setters
+    //specifically did not add setters because each line should be immutable once made (can only delete/add entire line)
 }

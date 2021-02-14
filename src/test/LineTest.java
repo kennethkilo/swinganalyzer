@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LineTest {
 
     @Test
+    //constructor test along with testing the getters inside
     void testConstructor() {
         Line testLine = new Line("Green", 10, "(0,0)", "(10,10)");
         assertEquals("Green", testLine.getLineColour());
