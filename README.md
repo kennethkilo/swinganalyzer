@@ -26,7 +26,9 @@ position changes will help me improve my swing!
 - As a user, I want to be able to clear all the lines
 - As a user, I want to check if the Image is clear of all lines
 - As a user, I want to see how many lines are still on the image and which ones they are
-
+- //Added for Phase 2//
+- As a user, I want to be able to save the line drawings I made on the image to a file
+- As a user, I want to be able to load in the line drawings I made on the image from a file
 #### Saved for next part of the project
 - ~~As a user, I want to be able to load in an image~~ 
 - ~~As a user, I want to be able to see the shape overlaid on the image~~
