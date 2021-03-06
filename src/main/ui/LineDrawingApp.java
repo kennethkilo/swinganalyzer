@@ -17,7 +17,9 @@ public class LineDrawingApp {
 
     // UI code here largely based off of the TellerApp.
     // EFFECTS: runs the application
-    public LineDrawingApp() {
+    public LineDrawingApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runApp();
     }
 
