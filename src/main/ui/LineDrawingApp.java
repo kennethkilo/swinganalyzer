@@ -1,8 +1,11 @@
 package ui;
 
 import model.*;
-
+import persistence.JsonReader;
+import persistence.JsonWriter;
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class LineDrawingApp {
     private Scanner input;
