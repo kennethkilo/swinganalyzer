@@ -167,9 +167,6 @@ public class LineDrawingApp {
             case "g":
                 saveImage();
                 break;
-            default:
-                System.out.println("Selection not valid...");
-                break;
         }
     }
 
@@ -257,7 +254,5 @@ public class LineDrawingApp {
         } else {
             System.out.print("Error! " + indexNumber + " is greater than the Index! Remember index starts from 0!\n");
         }
-
-
     }
 }
