@@ -1,9 +1,13 @@
 package model;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
-public class Image {
+public class Image implements Writable {
     private ArrayList<Line> lines;
     //name of image to tell the images apart
 
@@ -61,5 +65,21 @@ public class Image {
     //EFFECTS: Adds the line to the image
     public void addLine(Line lineToAdd) {
         this.lines.add(lineToAdd);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("lines", linesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns lines in this image as a JSON array
+    private JSONArray linesToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Line l : lines) {
+            jsonArray.put(l.toJson());
+        }
+        return jsonArray;
     }
 }

@@ -3,6 +3,7 @@ package ui;
 import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,6 +57,7 @@ public class LineDrawingApp {
             System.out.println("Selection not valid...");
         }
     }
+
     // MODIFIES: this
     // EFFECTS: loads Image from file
     private void loadImage() {

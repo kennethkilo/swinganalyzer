@@ -1,6 +1,9 @@
 package model;
 
-public class Line {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class Line implements Writable {
     private final int lineWidth;
     private final String lineColour;
     private final String lineStart;
@@ -34,4 +37,14 @@ public class Line {
 
     //setters
     //specifically did not add setters because each line should be immutable once made (can only delete/add entire line)
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("colour", lineColour);
+        json.put("width", lineWidth);
+        json.put("start", lineStart);
+        json.put("end", lineEnd);
+        return json;
+    }
 }
