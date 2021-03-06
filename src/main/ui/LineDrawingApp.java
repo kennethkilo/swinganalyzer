@@ -63,6 +63,7 @@ public class LineDrawingApp {
     private void displayMenu() {
         System.out.println("\nWould you like to:");
         System.out.println("\ta -> Add Lines to Image");
+        System.out.println("\tb -> Load Lines onto Image");
         System.out.println("\tq -> Quit");
     }
 
