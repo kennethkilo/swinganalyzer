@@ -8,8 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LineDrawingApp {
+    private static final String JSON_STORE = "./data/image.json";
     private Scanner input;
     private Image exampleImage;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // UI code here largely based off of the TellerApp.
     // EFFECTS: runs the application
@@ -46,8 +49,21 @@ public class LineDrawingApp {
         if (command.equals("a")) {
             addLine();
             nextStage();
+        } else if (command.equals("b")) {
+            loadImage();
+            nextStage();
         } else {
             System.out.println("Selection not valid...");
+        }
+    }
+    // MODIFIES: this
+    // EFFECTS: loads Image from file
+    private void loadImage() {
+        try {
+            exampleImage = jsonReader.read();
+            System.out.println("Loaded " + exampleImage.getLines().size() + " lines" + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
@@ -144,9 +160,24 @@ public class LineDrawingApp {
             case "f":
                 deleteSpecificLine();
                 break;
+            case "g":
+                saveImage();
+                break;
             default:
                 System.out.println("Selection not valid...");
                 break;
+        }
+    }
+
+    // EFFECTS: saves the image to file
+    private void saveImage() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(exampleImage);
+            jsonWriter.close();
+            System.out.println("Saved " + exampleImage.getLines().size() + " lines" + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 
@@ -159,6 +190,7 @@ public class LineDrawingApp {
         System.out.println("\td -> Clear all the Lines from the Image");
         System.out.println("\te -> Delete the last Line added");
         System.out.println("\tf -> Delete a specific Line");
+        System.out.println("\tg -> Save the Lines on the Image");
         System.out.println("\tq -> Go back to starting Menu");
     }
 
