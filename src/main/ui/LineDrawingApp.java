@@ -210,10 +210,10 @@ public class LineDrawingApp {
     // EFFECTS: checks how many lines there are on the image
     private void howManyLines() {
         StringBuilder listOfLines = new StringBuilder();
-        if (exampleImage.howManyLines().equals("There are 0 lines on the drawing.")) {
-            exampleImage.howManyLines();
+        if (exampleImage.howManyLinesText().equals("There are 0 lines on the drawing.")) {
+            exampleImage.howManyLinesText();
         } else {
-            System.out.println(exampleImage.howManyLines() + ".\n");
+            System.out.println(exampleImage.howManyLinesText() + ".\n");
             for (Line line : exampleImage.getLines()) {
                 listOfLines.append(line.getLineColour()).append(" with width ").append(line.getLineWidth()).append(
                         " from ").append(line.getLineStart()).append(" to ").append(line.getLineEnd()).append(" and ");

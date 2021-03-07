@@ -34,9 +34,15 @@ public class Image implements Writable {
     }
 
     // EFFECTS: Returns how many Lines there are. Yes I know it returns a message. Might change later
-    public String howManyLines() {
+    public String howManyLinesText() {
         int lineCount = this.lines.size();
         return "There are " + lineCount + " lines on the drawing";
+    }
+
+    // EFFECTS: Returns how many Lines there are in int
+    public int howManyLines() {
+        int lineCount = this.lines.size();
+        return lineCount;
     }
 
     //MODIFIES: this

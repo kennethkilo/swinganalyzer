@@ -1,5 +1,5 @@
-import model.Image;
-import model.Line;
+package model;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
@@ -33,14 +33,25 @@ public class ImageTest {
     }
 
     @Test
+    void testHowManyLinesText() {
+        assertEquals("There are 0 lines on the drawing",testImage.howManyLinesText());
+        testImage.addLine(
+                new Line("Green", 10, "(0,0)","(10,10)"));
+        assertEquals("There are 1 lines on the drawing",testImage.howManyLinesText());
+        testImage.addLine(
+                new Line("Green", 10, "(0,0)","(10,10)"));
+        assertEquals("There are 2 lines on the drawing",testImage.howManyLinesText());
+    }
+
+    @Test
     void testHowManyLines() {
-        assertEquals("There are 0 lines on the drawing",testImage.howManyLines());
+        assertEquals(0,testImage.howManyLines());
         testImage.addLine(
                 new Line("Green", 10, "(0,0)","(10,10)"));
-        assertEquals("There are 1 lines on the drawing",testImage.howManyLines());
+        assertEquals(1,testImage.howManyLines());
         testImage.addLine(
                 new Line("Green", 10, "(0,0)","(10,10)"));
-        assertEquals("There are 2 lines on the drawing",testImage.howManyLines());
+        assertEquals(2,testImage.howManyLines());
     }
 
     @Test

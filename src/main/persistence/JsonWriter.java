@@ -23,7 +23,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
+    // EFFECTS: writes JSON representation of Image to file
     public void write(Image img) {
         JSONObject json = img.toJson();
         saveToFile(json.toString(TAB));

@@ -9,6 +9,7 @@ public class Line implements Writable {
     private final String lineStart;
     private final String lineEnd;
 
+    // EFFECTS: constructor to create a Line with colour, width, start and end positions
     public Line(String lineColour, int lineWidth, String lineStart, String lineEnd) {
         this.lineColour = lineColour;
         this.lineWidth = lineWidth;

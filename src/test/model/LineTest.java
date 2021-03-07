@@ -1,3 +1,5 @@
+package model;
+
 import model.Line;
 import org.junit.jupiter.api.Test;
 
