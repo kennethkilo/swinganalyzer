@@ -28,7 +28,7 @@ public class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/testReaderEmptyImage.json");
         try {
             Image img = reader.read();
-            ArrayList<Line> emptyListOfLines = new ArrayList<Line>();
+            ArrayList<Line> emptyListOfLines = new ArrayList<>();
             assertEquals(emptyListOfLines, img.getLines());
             assertEquals(0, img.howManyLines());
         } catch (IOException e) {
@@ -43,6 +43,7 @@ public class JsonReaderTest extends JsonTest {
         Line line = new Line("green", 10, "(10,10)", "(10,10)");
         try {
             Image img = reader.read();
+            checkLine("green",10,"(10,10)","(10,10)",line);
             assertEquals(1, img.getLines().size());
             assertEquals("green", img.getLines().get(0).getLineColour());
             assertEquals(10, img.getLines().get(0).getLineWidth());
