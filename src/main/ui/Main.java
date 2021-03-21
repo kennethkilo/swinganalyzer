@@ -1,12 +1,16 @@
 package ui;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Main {
-
-    public static void main(String[] args) {
+    public static void guiSetup() throws IOException {
         final int MAINFRAMEWIDTH = 800;
         final int MAINFRAMEHEIGHT = 1000;
         final int BUTTONWIDTH = 300;
@@ -14,10 +18,12 @@ public class Main {
 
         // JFrame code partly taken from javatpoint.com
         JFrame mainFrame = new JFrame("Line Drawing App");//creating instance of JFrame
-
         mainFrame.setSize(MAINFRAMEWIDTH, MAINFRAMEHEIGHT);
         mainFrame.setLayout(null);//using no layout managers
         mainFrame.setVisible(true);//making the frame visible
+
+
+
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JButton addLinesToImageButton = new JButton("Add Lines to Image");//creating instance of JButton
@@ -35,8 +41,24 @@ public class Main {
         mainFrame.add(addLinesToImageButton);//adding button in JFrame
         mainFrame.add(loadLinesToImageButton);//adding button in JFrame
         mainFrame.add(quitButton);//adding button in JFrame
+        mainFrame.add(imageSetup()); //adds the image
+    }
 
+    public static JPanel imageSetup() throws IOException {
+        JPanel pane = new JPanel() {
+            BufferedImage myImage = ImageIO.read(new File("./data/test.jpg"));
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(myImage, 100, 100, null);
+            }
+        };
+        return pane;
+    }
 
+    public static void main(String[] args) throws IOException {
+
+        guiSetup();
         try {
             new LineDrawingApp();
         } catch (FileNotFoundException e) {
