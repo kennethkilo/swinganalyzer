@@ -10,17 +10,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
-    public static final int MAINFRAMEWIDTH = 800;
+    public static final int MAINFRAMEWIDTH = 1500;
     public static final int MAINFRAMEHEIGHT = 1000;
     public static final int BUTTONWIDTH = 300;
     public static final int BUTTONHEIGHT = 40;
+//    private static SpringLayout SpringLayout = new SpringLayout();
 
 
     public static void guiSetup() throws IOException {
         // JFrame code partly taken from javatpoint.com
+
         JFrame mainFrame = new JFrame("Line Drawing App");//creating instance of JFrame
         mainFrame.setSize(MAINFRAMEWIDTH, MAINFRAMEHEIGHT);
-        mainFrame.setLayout(null);//using no layout managers
+//        mainFrame.setLayout(SpringLayout);//using no layout managers
 //        mainFrame.setResizable(false);
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,29 +42,33 @@ public class Main {
         quitButton.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 150, BUTTONWIDTH, BUTTONHEIGHT);
 
-        mainFrame.add(addLinesToImageButton);//adding button in JFrame
-        mainFrame.add(loadLinesToImageButton);//adding button in JFrame
-        mainFrame.add(quitButton);//adding button in JFrame
+//        mainFrame.add(addLinesToImageButton);//adding button in JFrame
+//        mainFrame.add(loadLinesToImageButton);//adding button in JFrame
+//        mainFrame.add(quitButton);//adding button in JFrame
 
-        JLabel label2 = new JLabel("hello world");
-//        JLabel label1 = new JLabel(logo);
-//        mainFrame.getContentPane().add(label1);
-        mainFrame.getContentPane().add(label2);
 
         mainFrame.setVisible(true);//making the frame visible
+        JLabel label1 = new JLabel(logo);
+        mainFrame.getContentPane().add(label1);
+//        JLabel label2 = new JLabel();
+//        label2.setText("hello testing one two three");
+//        mainFrame.add(label2);
 
 
 
 //        mainFrame.add(imageSetup()); //adds the image
     }
 
+
+//
+//
 //    public static JPanel imageSetup() throws IOException {
 //        JPanel pane = new JPanel() {
 //            BufferedImage myImage = ImageIO.read(new File("./data/golfswing.jpg"));
 //            @Override
 //            protected void paintComponent(Graphics g) {
 //                super.paintComponent(g);
-//                g.drawImage(myImage, 100, 100, null);
+//                g.drawImage(myImage, 100, 100, this);
 //            }
 //        };
 //        return pane;
