@@ -30,28 +30,27 @@ public class Main {
 
         JPanel mainImagePanel = new JPanel(); //creates all my JPanels
         JPanel addLinesToImagePanel = new JPanel();
-        JPanel loadLinesToImagePanel = new JPanel();
+        JPanel displayPanel = new JPanel();
         JPanel loadAndSaveLinesPanel = new JPanel();
 
-        panelSetup(mainImagePanel, addLinesToImagePanel, loadLinesToImagePanel, loadAndSaveLinesPanel); //setup panels
+        panelSetup(mainImagePanel, addLinesToImagePanel, displayPanel, loadAndSaveLinesPanel); //setup panels
 
-        frameSetup(mainFrame,mainImagePanel,addLinesToImagePanel,loadLinesToImagePanel,loadAndSaveLinesPanel); //setup
+        frameSetup(mainFrame, mainImagePanel, addLinesToImagePanel, displayPanel, loadAndSaveLinesPanel); //setup
 
         JButton addLinesToImageButton = new JButton("Add Lines to Image");//creating instance of JButton
-        JButton loadLinesToImageButton = new JButton("Load Lines onto Image");//creating instance of JButton
+        JButton clearLinesButton = new JButton("Clear lines");//creating instance of JButton
         JButton saveLines = new JButton("Save Lines");
         JButton loadLines = new JButton("Load Lines");
-        buttonSetup(addLinesToImageButton, loadLinesToImageButton, lineDrawingApp, saveLines, loadLines);
+        buttonSetup(addLinesToImageButton, clearLinesButton, lineDrawingApp, saveLines, loadLines);
 
         addLinesToImagePanel.add(addLinesToImageButton);//adding button in JFrame
-        loadLinesToImagePanel.add(loadLinesToImageButton);//adding button in JFrame
+        addLinesToImagePanel.add(clearLinesButton);//adding button in JFrame
         loadAndSaveLinesPanel.add(saveLines);//adding button in JFrame
         loadAndSaveLinesPanel.add(loadLines);//adding button in JFrame
 
-        mainFrame.setVisible(true);//making the frame visible
-        JLabel label1 = new JLabel(new ImageIcon("./data/golfswing.jpg")); //creates image icon);
-        mainImagePanel.add(label1);
+        labelSetup(displayPanel, mainImagePanel, lineDrawingApp);
 
+        mainFrame.setVisible(true);//making the frame visible
 
     }
 
@@ -86,7 +85,7 @@ public class Main {
 
     //MODIFIES: this
     //EFFECTS: sets up the panels that were previously created
-    public static void panelSetup(JPanel mainImagePanel, JPanel addLinesToImagePanel, JPanel loadLinesToImagePanel,
+    public static void panelSetup(JPanel mainImagePanel, JPanel addLinesToImagePanel, JPanel displayPanel,
                                   JPanel loadAndSaveLinesPanel) {
         mainImagePanel.setBackground(Color.GREEN);
         mainImagePanel.setBounds(100, 100, 1300, 700);
@@ -95,8 +94,8 @@ public class Main {
         addLinesToImagePanel.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 200, BUTTONWIDTH, BUTTONHEIGHT);
 
-        loadLinesToImagePanel.setBackground(Color.GREEN);
-        loadLinesToImagePanel.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
+        displayPanel.setBackground(Color.GREEN);
+        displayPanel.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 150, BUTTONWIDTH, BUTTONHEIGHT);
 
         loadAndSaveLinesPanel.setBackground(Color.GREEN);
@@ -104,7 +103,15 @@ public class Main {
                 MAINFRAMEHEIGHT - 150, BUTTONWIDTH, BUTTONHEIGHT * 2);
 
     }
-
+    //MODIFIES: this
+    //EFFECTS: sets up the text label that shows what lines there are
+    public static void labelSetup(JPanel displayPanel, JPanel mainImagePanel, LineDrawingApp lineDrawingApp) {
+        JLabel displayLines = new JLabel(lineDrawingApp.exampleImage.howManyLinesText());
+//        displayLines.setText(lineDrawingApp.exampleImage.howManyLinesText());
+        displayPanel.add(displayLines);
+        JLabel imageLabel = new JLabel(new ImageIcon("./data/golfswing.jpg")); //creates image icon);
+        mainImagePanel.add(imageLabel);
+    }
 //
 //    public static JPanel imageSetup() throws IOException {
 //        JPanel pane = new JPanel() {
@@ -120,6 +127,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         LineDrawingApp lineDrawingApp = new LineDrawingApp();
+        lineDrawingApp.init();
         guiSetup(lineDrawingApp);
 
     }

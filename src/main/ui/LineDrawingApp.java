@@ -9,11 +9,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LineDrawingApp {
-    private static final String JSON_STORE = "./data/image.json";
-    private Scanner input;
-    private Image exampleImage;
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
+    protected static final String JSON_STORE = "./data/image.json";
+    protected Scanner input;
+    protected Image exampleImage;
+    protected JsonWriter jsonWriter;
+    protected JsonReader jsonReader;
 
     // UI code here largely based off of the TellerApp.
     // EFFECTS: runs the application
@@ -48,7 +48,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: processes user command when they choose to add a line (option a). User starts with only option to add.
-    private void processCommand(String command) {
+    void processCommand(String command) {
         if (command.equals("a")) {
             addLine();
             nextStage();
@@ -74,13 +74,13 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: initializes Image
-    private void init() {
+    void init() {
         exampleImage = new Image();
         input = new Scanner(System.in);
     }
 
     // EFFECTS: displays menu of options to user. This is the main menu and one out of two total.
-    private void displayMenu() {
+    void displayMenu() {
         System.out.println("\nWould you like to:");
         System.out.println("\ta -> Add Lines to Image");
         System.out.println("\tb -> Load Lines onto Image");
@@ -89,7 +89,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: adds a line to the image by taking in its four fields from the user.
-    private void addLine() {
+    void addLine() {
         String lineColour;
         int lineWidth;
         String lineStart;
@@ -123,7 +123,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: takes the user input for the next stage after a line is added.
-    private void nextStage() {
+    void nextStage() {
         boolean keepGoing = true;
         String command;
 
@@ -144,7 +144,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: processes user command with the second menu.
-    private void processCommandSecond(String command) {
+    void processCommandSecond(String command) {
         switch (command) {
             case "a":
                 addLine();
@@ -183,7 +183,7 @@ public class LineDrawingApp {
     }
 
     // EFFECTS: displays the options of the second menu to user
-    private void displayMenuTwo() {
+    void displayMenuTwo() {
         System.out.println("\nWhat would you like to do next?:");
         System.out.println("\ta -> Add more Lines to Image");
         System.out.println("\tb -> Check if the Image is empty");
@@ -197,7 +197,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: checks if the image is empty or not
-    private void checkEmpty() {
+    void checkEmpty() {
         if (exampleImage.emptyImage()) {
             System.out.println("The Image is empty and doesn't have lines.\n");
         } else {
@@ -208,7 +208,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: checks how many lines there are on the image
-    private void howManyLines() {
+    void howManyLines() {
         StringBuilder listOfLines = new StringBuilder();
         if (exampleImage.howManyLinesText().equals("There are 0 lines on the drawing.")) {
             exampleImage.howManyLinesText();
@@ -224,7 +224,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: clears all the lines
-    private void clearAllLines() {
+    void clearAllLines() {
         exampleImage.clearLines();
         System.out.println("The image is now cleared of all lines.\n");
 
@@ -232,7 +232,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: deletes the last line added
-    private void deleteLastLine() {
+    void deleteLastLine() {
         if (exampleImage.getLines().isEmpty()) {
             System.out.println("The Image is already empty dummy.\n");
         } else {
@@ -244,7 +244,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: deletes a specific line indexed starting from 0
-    private void deleteSpecificLine() {
+    void deleteSpecificLine() {
         int indexNumber;
         System.out.print("Enter the index number of the line you want to remove.\n");
         indexNumber = input.nextInt();
