@@ -1,14 +1,8 @@
 package ui;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
@@ -36,20 +30,24 @@ public class Main {
         panelSetup(mainImagePanel, addLinesToImagePanel, displayPanel, loadAndSaveLinesPanel); //setup panels
 
         frameSetup(mainFrame, mainImagePanel, addLinesToImagePanel, displayPanel, loadAndSaveLinesPanel); //setup
+        JTextArea displayLines = new JTextArea();
+        displayLines.setLineWrap(true);
+        displayLines.setBounds(0,0,100,100);
 
         JButton addLinesToImageButton = new JButton("Add Lines to Image");//creating instance of JButton
         JButton clearLinesButton = new JButton("Clear lines");//creating instance of JButton
         JButton saveLines = new JButton("Save Lines");
         JButton loadLines = new JButton("Load Lines");
-        buttonSetup(addLinesToImageButton, clearLinesButton, lineDrawingApp, saveLines, loadLines);
+        buttonSetup(addLinesToImageButton, clearLinesButton, lineDrawingApp, saveLines, loadLines, displayLines);
 
         addLinesToImagePanel.add(addLinesToImageButton);//adding button in JFrame
         addLinesToImagePanel.add(clearLinesButton);//adding button in JFrame
         loadAndSaveLinesPanel.add(saveLines);//adding button in JFrame
         loadAndSaveLinesPanel.add(loadLines);//adding button in JFrame
 
-        labelSetup(displayPanel, mainImagePanel, lineDrawingApp);
 
+        textAreaSetup(displayLines, displayPanel, mainImagePanel, lineDrawingApp);
+        displayPanel.add(displayLines);
         mainFrame.setVisible(true);//making the frame visible
 
     }
@@ -64,9 +62,9 @@ public class Main {
 
     //MODIFIES: this
     //EFFECTS: sets up the buttons that were previously created
-    public static void buttonSetup(JButton addLinesToImageButton, JButton loadLinesToImageButton,
+    public static void buttonSetup(JButton addLinesToImageButton, JButton clearLinesButton,
                                    LineDrawingApp lineDrawingApp, JButton saveLines,
-                                   JButton loadLines) {
+                                   JButton loadLines, JTextArea displayLines) {
         addLinesToImageButton.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 250, BUTTONWIDTH, BUTTONHEIGHT);
 
@@ -76,11 +74,22 @@ public class Main {
 
         loadLines.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 250, BUTTONWIDTH, BUTTONHEIGHT);
-        loadLines.addActionListener(e -> lineDrawingApp.loadImage());
+        loadLines.addActionListener(e -> loadImageAndUpdate(lineDrawingApp, displayLines));
 
         addLinesToImageButton.addActionListener(e -> lineDrawingApp.runApp());
-        loadLinesToImageButton.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
+        clearLinesButton.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
                 MAINFRAMEHEIGHT - 200, BUTTONWIDTH, BUTTONHEIGHT);
+        clearLinesButton.addActionListener(e -> clearLinesAndUpdate(lineDrawingApp,displayLines));
+    }
+
+    public static void loadImageAndUpdate(LineDrawingApp lineDrawingApp, JTextArea displayLines) {
+        lineDrawingApp.loadImage();
+        displayLines.setText(lineDrawingApp.howManyLinesInText());
+    }
+
+    public static void clearLinesAndUpdate(LineDrawingApp lineDrawingApp, JTextArea displayLines) {
+        lineDrawingApp.clearAllLines();
+        displayLines.setText(lineDrawingApp.howManyLinesInText());
     }
 
     //MODIFIES: this
@@ -96,18 +105,19 @@ public class Main {
 
         displayPanel.setBackground(Color.GREEN);
         displayPanel.setBounds((MAINFRAMEWIDTH - BUTTONWIDTH) / 2,
-                MAINFRAMEHEIGHT - 150, BUTTONWIDTH, BUTTONHEIGHT);
+                MAINFRAMEHEIGHT - 150, BUTTONWIDTH + 150, BUTTONHEIGHT + 300);
 
         loadAndSaveLinesPanel.setBackground(Color.GREEN);
         loadAndSaveLinesPanel.setBounds(200,
                 MAINFRAMEHEIGHT - 150, BUTTONWIDTH, BUTTONHEIGHT * 2);
 
     }
+
     //MODIFIES: this
-    //EFFECTS: sets up the text label that shows what lines there are
-    public static void labelSetup(JPanel displayPanel, JPanel mainImagePanel, LineDrawingApp lineDrawingApp) {
-        JLabel displayLines = new JLabel(lineDrawingApp.exampleImage.howManyLinesText());
-//        displayLines.setText(lineDrawingApp.exampleImage.howManyLinesText());
+    //EFFECTS: sets up the text area that shows what lines there are
+    public static void textAreaSetup(JTextArea displayLines, JPanel displayPanel, JPanel mainImagePanel,
+                                     LineDrawingApp lineDrawingApp) {
+        displayLines.setText(lineDrawingApp.exampleImage.howManyLinesText());
         displayPanel.add(displayLines);
         JLabel imageLabel = new JLabel(new ImageIcon("./data/golfswing.jpg")); //creates image icon);
         mainImagePanel.add(imageLabel);

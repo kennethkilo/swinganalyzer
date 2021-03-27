@@ -223,6 +223,23 @@ public class LineDrawingApp {
     }
 
     // MODIFIES: this
+    // EFFECTS: checks how many lines there are on the image and returns text
+    public String howManyLinesInText() {
+        StringBuilder listOfLines = new StringBuilder();
+        if (exampleImage.howManyLinesText().equals("There are 0 lines on the drawing.")) {
+            return listOfLines.toString();
+        } else {
+            System.out.println(exampleImage.howManyLinesText() + ".\n");
+            for (Line line : exampleImage.getLines()) {
+                listOfLines.append(line.getLineColour()).append(" with width ").append(line.getLineWidth()).append(
+                        " from ").append(line.getLineStart()).append(" to ").append(line.getLineEnd()).append(" and ");
+                System.out.println("These lines are " + listOfLines + "that's all.\n");
+            }
+        }
+        return listOfLines.toString();
+    }
+
+    // MODIFIES: this
     // EFFECTS: clears all the lines
     void clearAllLines() {
         exampleImage.clearLines();
