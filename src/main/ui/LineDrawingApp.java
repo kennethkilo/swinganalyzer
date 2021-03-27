@@ -20,12 +20,12 @@ public class LineDrawingApp {
     public LineDrawingApp() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        runApp();
+//        runApp();
     }
 
     // MODIFIES: this
     // EFFECTS: takes the user input while displaying a menu of options
-    private void runApp() {
+    void runApp() {
         boolean keepGoing = true;
         String command;
 
@@ -62,7 +62,7 @@ public class LineDrawingApp {
 
     // MODIFIES: this
     // EFFECTS: loads Image from file
-    private void loadImage() {
+    void loadImage() {
         try {
             exampleImage = jsonReader.read();
             System.out.println("Loaded " + exampleImage.getLines().size() + " lines" + " from " + JSON_STORE);
@@ -171,7 +171,7 @@ public class LineDrawingApp {
     }
 
     // EFFECTS: saves the image to file
-    private void saveImage() {
+    void saveImage() {
         try {
             jsonWriter.open();
             jsonWriter.write(exampleImage);
