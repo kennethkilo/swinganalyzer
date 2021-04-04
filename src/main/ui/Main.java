@@ -36,6 +36,7 @@ public class Main {
         JButton save = new JButton("Save Lines");
         JButton load = new JButton("Load Lines");
         //if = input field
+        initialize();
         JTextField ifColour = new JTextField();
         JTextField ifWidth = new JTextField();
         JTextField ifStart = new JTextField();
@@ -52,6 +53,10 @@ public class Main {
 
         mainFrameSetup(mainFrame);
 
+
+    }
+
+    private static void initialize() {
 
     }
 
