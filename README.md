@@ -32,3 +32,6 @@ position changes will help me improve my swing!
 #### Saved for next part of the project
 - ~~As a user, I want to be able to load in an image~~ 
 - ~~As a user, I want to be able to see the shape overlaid on the image~~
+
+#### Phase 4: Task 2
+- Choice 1: Made Line Class robust by throwing an error when field Width isn't given the expected int type.
