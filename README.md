@@ -35,3 +35,8 @@ position changes will help me improve my swing!
 
 #### Phase 4: Task 2
 - Choice 1: Made Image Class robust by throwing errors for the methods deleteSpecificLine and deleteLastLine.
+
+#### Phase 4: Task 3
+- I would make Lines extend an interface maybe called "Shapes" so that it's much easier to add new shapes
+- I would also make my GUI more separate from my Main class where everything is currently sort of blotched together.
+- I would also combine the LineDrawingApp with the GUI because right now it's a command line system and the GUI sort of just calls parts of that system.

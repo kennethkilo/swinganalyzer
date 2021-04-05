@@ -36,7 +36,6 @@ public class Main {
         JButton save = new JButton("Save Lines");
         JButton load = new JButton("Load Lines");
         //if = input field
-        initialize();
         JTextField ifColour = new JTextField();
         JTextField ifWidth = new JTextField();
         JTextField ifStart = new JTextField();
@@ -52,13 +51,8 @@ public class Main {
                 loadAndSaveLinesPanel, ifColour, ifWidth, ifStart, ifEnd, displayPanel, display);
 
         mainFrameSetup(mainFrame);
-
-
     }
 
-    private static void initialize() {
-
-    }
 
     private static void displayLinesSetup(JTextArea displayLines) {
         displayLines.setLineWrap(true);
