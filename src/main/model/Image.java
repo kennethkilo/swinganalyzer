@@ -1,6 +1,7 @@
 package model;
 
 
+import exceptions.EmptyImageException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
@@ -54,8 +55,10 @@ public class Image implements Writable {
     //REQUIRES: non-empty Image
     //MODIFIES: this
     //EFFECTS: Removes Line specified in array
-    public void deleteSpecificLine(int lineIndex) {
-        if (lineIndex <= this.getLines().size()) {
+    public void deleteSpecificLine(int lineIndex) throws EmptyImageException {
+        if (lineIndex > this.getLines().size() || this.getLines().isEmpty()) {
+            throw new EmptyImageException();
+        } else {
             this.lines.remove(lineIndex);
         }
     }
@@ -63,8 +66,12 @@ public class Image implements Writable {
     //REQUIRES: non-empty Image
     //MODIFIES: this
     //EFFECTS: Removes the last Line
-    public void deleteLastLine() {
-        this.lines.remove(this.lines.size() - 1);
+    public void deleteLastLine() throws EmptyImageException {
+        if (this.getLines().isEmpty()) {
+            throw new EmptyImageException();
+        } else {
+            this.lines.remove(this.lines.size() - 1);
+        }
     }
 
     //MODIFIES:this

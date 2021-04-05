@@ -1,5 +1,6 @@
 package ui;
 
+import exceptions.EmptyImageException;
 import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -253,8 +254,13 @@ public class LineDrawingApp {
         if (exampleImage.getLines().isEmpty()) {
             System.out.println("The Image is already empty dummy.\n");
         } else {
-            exampleImage.deleteLastLine();
-            System.out.println("The last added line as been removed.\n");
+            try {
+                exampleImage.deleteLastLine();
+                System.out.println("The last added line as been removed.\n");
+            } catch (EmptyImageException e) {
+                System.out.println("Error, the image was already empty!");
+            }
+
         }
 
     }
@@ -266,8 +272,13 @@ public class LineDrawingApp {
         System.out.print("Enter the index number of the line you want to remove.\n");
         indexNumber = input.nextInt();
         if (indexNumber < exampleImage.getLines().size()) {
-            exampleImage.deleteSpecificLine(indexNumber);
-            System.out.print("Ok, the line in position " + indexNumber + " has been deleted.\n");
+            try {
+                exampleImage.deleteSpecificLine(indexNumber);
+                System.out.print("Ok, the line in position " + indexNumber + " has been deleted.\n");
+            } catch (EmptyImageException e) {
+                System.out.println("Error, the image was already empty!");
+            }
+
         } else {
             System.out.print("Error! " + indexNumber + " is greater than the Index! Remember index starts from 0!\n");
         }

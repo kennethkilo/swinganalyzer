@@ -34,4 +34,4 @@ position changes will help me improve my swing!
 - ~~As a user, I want to be able to see the shape overlaid on the image~~
 
 #### Phase 4: Task 2
-- Choice 1: Made Line Class robust by throwing an error when field Width isn't given the expected int type.
+- Choice 1: Made Image Class robust by throwing errors for the methods deleteSpecificLine and deleteLastLine.
