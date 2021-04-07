@@ -15,7 +15,6 @@ public class Line implements Writable {
         this.lineWidth = lineWidth;
         this.lineStart = lineStart;
         this.lineEnd = lineEnd;
-
     }
 
     //getters
