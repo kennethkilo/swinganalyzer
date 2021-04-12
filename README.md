@@ -26,17 +26,16 @@ position changes will help me improve my swing!
 - As a user, I want to be able to clear all the lines
 - As a user, I want to check if the Image is clear of all lines
 - As a user, I want to see how many lines are still on the image and which ones they are
-- //Added for Phase 2//
 - As a user, I want to be able to save the line drawings I made on the image to a file
 - As a user, I want to be able to load in the line drawings I made on the image from a file
-#### Saved for next part of the project
+#### Saved for next part
 - ~~As a user, I want to be able to load in an image~~ 
 - ~~As a user, I want to be able to see the shape overlaid on the image~~
 
-#### Phase 4: Task 2
-- Choice 1: Made Image Class robust by throwing errors for the methods deleteSpecificLine and deleteLastLine.
+#### Phase 4:
+-  Made Image Class robust by throwing errors for the methods deleteSpecificLine and deleteLastLine.
 
-#### Phase 4: Task 3
-- I would make Lines extend an interface maybe called "Shapes" so that it's much easier to add new shapes
-- I would also make my GUI more separate from my Main class where everything is currently sort of blotched together.
-- I would also combine the LineDrawingApp with the GUI because right now it's a command line system and the GUI sort of just calls parts of that system.
+#### Todo:
+- Make Lines extend an interface maybe called "Shapes" so that it's much easier to add new shapes
+- Make GUI more separate from Main class where everything is currently sort of blotched together.
+- Combine the LineDrawingApp with the GUI because right now it's a command line system and the GUI sort of just calls parts of that system.
